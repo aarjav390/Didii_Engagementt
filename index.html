@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aayushi and Harsh wedding invitation. Join us in celebrating our special day with love, joy, and cherished moments."
+    />
+    <title>Aayushi & Harsh | Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <div class="petal-layer" id="petal-layer" aria-hidden="true"></div>
+
+    <button
+      class="music-toggle"
+      id="music-toggle"
+      type="button"
+      aria-label="Play or pause background music"
+      title="Music"
+    >
+      <span class="music-icon">♫</span>
+      <span class="music-label">Music</span>
+    </button>
+
+    <section class="opening-screen" id="opening-screen" aria-label="Wedding invitation opening screen">
+      <div class="ornament ornament-left" aria-hidden="true"></div>
+      <div class="ornament ornament-right" aria-hidden="true"></div>
+
+      <div class="envelope-wrap">
+        <div class="envelope-card" id="envelope-card" aria-live="polite">
+          <div class="envelope-top"></div>
+          <div class="invite-card">
+            <p class="invite-kicker">Together with their families</p>
+            <h1>Aayushi <span>&</span> Harsh</h1>
+            <p class="invite-date">25 February 2027</p>
+            <p class="invite-message">Join us in celebrating our special day with love, joy, and cherished moments.</p>
+          </div>
+        </div>
+        <button class="open-invitation-btn" id="open-invitation-btn" type="button">
+          Open Invitation
+        </button>
+      </div>
+    </section>
+
+    <main class="invitation-page" id="invitation-page">
+      <section class="intro section" aria-labelledby="intro-title">
+        <div class="section-heading center">
+          <p class="eyebrow">With love</p>
+          <h2 id="intro-title" class="script-title">Aayushi & Harsh</h2>
+        </div>
+
+        <div class="intro-card">
+          <p class="intro-line">Together with their families,</p>
+          <p class="intro-line">invite you to celebrate their wedding.</p>
+        </div>
+      </section>
+
+      <section class="scratch-section section" aria-labelledby="scratch-title">
+        <div class="section-heading center">
+          <p class="eyebrow">Save the date</p>
+          <h2 id="scratch-title">Scratch to Reveal</h2>
+        </div>
+
+        <div class="scratch-card-shell">
+          <div class="scratch-card" id="scratch-card">
+            <div class="scratch-content" aria-live="polite">
+              <p class="scratch-instruction">Scratch to reveal the wedding date</p>
+              <div class="scratch-hidden-date">25 February 2027</div>
+            </div>
+            <canvas id="scratch-canvas" aria-label="Scratch card showing the wedding date"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="countdown-section section" aria-labelledby="countdown-title">
+        <div class="section-heading center">
+          <p class="eyebrow">Counting down</p>
+          <h2 id="countdown-title">Wedding Countdown</h2>
+        </div>
+
+        <div class="countdown-grid">
+          <div class="time-box">
+            <span class="time-value" id="countdown-days">00</span>
+            <span class="time-label">Days</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="countdown-hours">00</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="countdown-minutes">00</span>
+            <span class="time-label">Minutes</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="countdown-seconds">00</span>
+            <span class="time-label">Seconds</span>
+          </div>
+        </div>
+
+        <p class="countdown-message" id="countdown-message" aria-live="polite">
+          The celebration awaits us with love.
+        </p>
+      </section>
+
+      <section class="events-section section" aria-labelledby="events-title">
+        <div class="section-heading center">
+          <p class="eyebrow">Ceremonies</p>
+          <h2 id="events-title">Events Schedule</h2>
+        </div>
+
+        <div class="events-grid">
+          <article class="event-card mandvo" tabindex="0">
+            <div class="event-art" aria-hidden="true"></div>
+            <div class="event-content">
+              <span class="event-tag">Event 01</span>
+              <h3>Mandvo</h3>
+              <p class="event-date">24 February 2027</p>
+              <p class="event-time">08:00 AM</p>
+              <p class="event-description">Traditional Gujarati wedding decoration theme.</p>
+            </div>
+          </article>
+
+          <article class="event-card haldi" tabindex="0">
+            <div class="event-art" aria-hidden="true"></div>
+            <div class="event-content">
+              <span class="event-tag">Event 02</span>
+              <h3>Haldi</h3>
+              <p class="event-date">24 February 2027</p>
+              <p class="event-time">03:00 PM</p>
+              <p class="event-description">Yellow floral and joyful celebration with blessings.</p>
+            </div>
+          </article>
+
+          <article class="event-card garba" tabindex="0">
+            <div class="event-art" aria-hidden="true"></div>
+            <div class="event-content">
+              <span class="event-tag">Event 03</span>
+              <h3>Garba Night</h3>
+              <p class="event-date">24 February 2027</p>
+              <p class="event-time">09:00 PM</p>
+              <p class="event-description">A vibrant night of dance, rhythm, and traditions.</p>
+            </div>
+          </article>
+
+          <article class="event-card wedding" tabindex="0">
+            <div class="event-art" aria-hidden="true"></div>
+            <div class="event-content">
+              <span class="event-tag">Event 04</span>
+              <h3>Wedding</h3>
+              <p class="event-date">25 February 2027</p>
+              <p class="event-time">10:00 AM</p>
+              <p class="event-description">Premium royal ceremony with love, vows, and blessings.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="couple-section section" aria-labelledby="couple-title">
+        <div class="section-heading center">
+          <p class="eyebrow">Our story</p>
+          <h2 id="couple-title">Aayushi & Harsh</h2>
+        </div>
+
+        <div class="couple-layout">
+          <div class="portrait portrait-groom" role="img" aria-label="Groom portrait placeholder">
+            <div class="portrait-inner">
+              <span>Groom</span>
+            </div>
+          </div>
+
+          <div class="portrait portrait-couple" role="img" aria-label="Couple portrait placeholder">
+            <div class="portrait-inner">
+              <span>Couple</span>
+            </div>
+          </div>
+
+          <div class="portrait portrait-bride" role="img" aria-label="Bride portrait placeholder">
+            <div class="portrait-inner">
+              <span>Bride</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="couple-message">Two hearts,<br />one beautiful journey.</p>
+      </section>
+
+      <section class="venue-section section" aria-labelledby="venue-title">
+        <div class="section-heading center">
+          <p class="eyebrow">Location</p>
+          <h2 id="venue-title">Wedding Venue</h2>
+        </div>
+
+        <div class="venue-card">
+          <div class="venue-map" aria-label="Wedding venue map placeholder">
+            <span>Map placeholder</span>
+          </div>
+          <div class="venue-details">
+            <h3>Bhavna Resort & Farm</h3>
+            <p>Dasada Road, Patdi, Surendranagar </p>
+            <button class="location-btn" type="button">View Location</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section section" aria-labelledby="gallery-title">
+        <div class="section-heading center">
+          <p class="eyebrow">Moments</p>
+          <h2 id="gallery-title">Gallery</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item" type="button" data-image="assets/images/gallery-01.jpg" data-title="Gallery 01" aria-label="Open gallery image 1">
+            <span class="gallery-label">1</span>
+          </button>
+          <button class="gallery-item" type="button" data-image="assets/images/gallery-02.jpg" data-title="Gallery 02" aria-label="Open gallery image 2">
+            <span class="gallery-label">2</span>
+          </button>
+          <button class="gallery-item" type="button" data-image="assets/images/gallery-03.jpg" data-title="Gallery 03" aria-label="Open gallery image 3">
+            <span class="gallery-label">3</span>
+          </button>
+          <button class="gallery-item" type="button" data-image="assets/images/couple.jpg" data-title="Couple Photo" aria-label="Open couple portrait">
+            <span class="gallery-label">4</span>
+          </button>
+          <button class="gallery-item" type="button" data-image="assets/images/bride.jpg" data-title="Bride Photo" aria-label="Open bride portrait">
+            <span class="gallery-label">5</span>
+          </button>
+          <button class="gallery-item" type="button" data-image="assets/images/groom.jpg" data-title="Groom Photo" aria-label="Open groom portrait">
+            <span class="gallery-label">6</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="final-section section" aria-labelledby="final-title">
+        <div class="final-card">
+          <div class="floral-decoration floral-top" aria-hidden="true"></div>
+          <div class="floral-decoration floral-bottom" aria-hidden="true"></div>
+          <p class="eyebrow">With gratitude</p>
+          <h2 id="final-title" class="script-title">Aayushi & Harsh</h2>
+          <p class="final-date">25 February 2027</p>
+          <p class="final-message">
+            With love in our hearts<br />
+            and happiness all around,<br />
+            we invite you to be part of our special day.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close gallery">×</button>
+      <button class="lightbox-nav prev" id="lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <div class="lightbox-stage">
+        <div class="lightbox-image" id="lightbox-image" role="img" aria-label="Full-size gallery image"></div>
+      </div>
+      <button class="lightbox-nav next" id="lightbox-next" type="button" aria-label="Next image">›</button>
+    </div>
+
+    <audio id="background-music" preload="auto" loop aria-label="Background music"></audio>
+
+    <script src="js/main.js"></script>
+    <script src="js/scratch.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/music.js"></script>
+  </body>
+</html>

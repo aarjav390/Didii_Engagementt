@@ -1,0 +1,59 @@
+@media (min-width: 600px) {
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .couple-layout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: end;
+  }
+
+  .portrait-couple {
+    min-height: 330px;
+  }
+}
+
+@media (min-width: 768px) {
+  .venue-card {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .event-card {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 420px) {
+  .music-toggle {
+    right: 0.7rem;
+    top: 0.7rem;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .music-label {
+    display: none;
+  }
+
+  .section {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .invite-card {
+    width: min(82%, 300px);
+    min-height: 194px;
+  }
+
+  .open-invitation-btn {
+    width: min(76vw, 260px);
+  }
+}
