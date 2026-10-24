@@ -48,13 +48,11 @@
 
     const resizeCanvas = function () {
       const bounds = scratchCard.getBoundingClientRect();
-      const width = Math.max(bounds.width, 300);
-      const height = Math.max(bounds.height, 180);
+      const width = Math.max(bounds.width, 1);
+      const height = Math.max(bounds.height, 1);
 
       canvas.width = Math.floor(width * devicePixelRatio);
       canvas.height = Math.floor(height * devicePixelRatio);
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
 
       context.setTransform(1, 0, 0, 1, 0, 0);
       context.scale(devicePixelRatio, devicePixelRatio);
@@ -123,7 +121,12 @@
     canvas.addEventListener('pointerleave', handlePointerEnd);
     canvas.addEventListener('pointercancel', handlePointerEnd);
 
-    window.addEventListener('resize', resizeCanvas);
+    if ('ResizeObserver' in window) {
+      const resizeObserver = new ResizeObserver(resizeCanvas);
+      resizeObserver.observe(scratchCard);
+    } else {
+      window.addEventListener('resize', resizeCanvas);
+    }
   }
 
   window.initializeScratchCard = initializeScratchCard;

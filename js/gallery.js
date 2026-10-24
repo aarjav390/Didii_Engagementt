@@ -11,16 +11,14 @@
     }
 
     currentIndex = (index + galleryItems.length) % galleryItems.length;
-    const gradients = [
-      'linear-gradient(135deg, rgba(227, 190, 183, 0.4), rgba(255,255,255,0.08))',
-      'linear-gradient(135deg, rgba(201, 173, 130, 0.48), rgba(255,255,255,0.08))',
-      'linear-gradient(135deg, rgba(170, 135, 113, 0.42), rgba(255,255,255,0.1))',
-      'linear-gradient(135deg, rgba(201, 149, 155, 0.42), rgba(255,255,255,0.08))',
-      'linear-gradient(135deg, rgba(184, 128, 141, 0.42), rgba(255,255,255,0.08))',
-      'linear-gradient(135deg, rgba(139, 120, 99, 0.38), rgba(255,255,255,0.1))'
-    ];
+    const image = galleryItems[currentIndex].querySelector('img');
 
-    lightboxImage.style.backgroundImage = gradients[currentIndex % gradients.length];
+    if (!image) {
+      return;
+    }
+
+    lightboxImage.style.backgroundImage = `url("${image.src}")`;
+    lightboxImage.setAttribute('aria-label', image.alt);
     lightbox.classList.add('is-open');
     lightbox.setAttribute('aria-hidden', 'false');
   }
@@ -44,7 +42,39 @@
     openLightbox(currentIndex + step);
   }
 
+  function initializeVenueGallery() {
+    const venueGallery = document.getElementById('venue-gallery');
+
+    if (!venueGallery) {
+      return;
+    }
+
+    const images = Array.from(venueGallery.querySelectorAll('img'));
+    const count = venueGallery.querySelector('.venue-gallery-count');
+    const previousButton = venueGallery.querySelector('.venue-gallery-nav.prev');
+    const nextButton = venueGallery.querySelector('.venue-gallery-nav.next');
+
+    if (!images.length || !count || !previousButton || !nextButton) {
+      return;
+    }
+
+    let currentIndex = 0;
+
+    const showImage = function (index) {
+      currentIndex = (index + images.length) % images.length;
+      images.forEach((image, imageIndex) => {
+        image.hidden = imageIndex !== currentIndex;
+      });
+      count.textContent = `${currentIndex + 1} / ${images.length}`;
+    };
+
+    previousButton.addEventListener('click', () => showImage(currentIndex - 1));
+    nextButton.addEventListener('click', () => showImage(currentIndex + 1));
+    showImage(currentIndex);
+  }
+
   function initializeGallery() {
+    initializeVenueGallery();
     galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
 
     if (!galleryItems.length) {

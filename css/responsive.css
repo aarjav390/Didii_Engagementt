@@ -34,8 +34,8 @@
 
 @media (max-width: 420px) {
   .music-toggle {
-    right: 0.7rem;
-    top: 0.7rem;
+    right: max(0.7rem, env(safe-area-inset-right));
+    top: max(0.7rem, env(safe-area-inset-top));
     padding: 0.55rem 0.75rem;
   }
 
@@ -55,5 +55,240 @@
 
   .open-invitation-btn {
     width: min(76vw, 260px);
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding-top: 2.3rem;
+    padding-bottom: 2.3rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1.25rem;
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.18rem;
+  }
+
+  .opening-screen {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 1rem;
+  }
+
+  .envelope-card {
+    width: min(88vw, 400px);
+    height: min(500px, 68svh);
+    min-height: 420px;
+  }
+
+  .invite-card {
+    width: min(84%, 320px);
+    padding: 1.2rem 0.85rem 0.9rem;
+  }
+
+  .invite-kicker {
+    font-size: 0.64rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .invite-message {
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  .events-grid {
+    gap: 0.85rem;
+  }
+
+  .event-card {
+    min-height: 200px;
+    border-radius: 22px;
+  }
+
+  .event-art {
+    flex-basis: 34%;
+    width: 34%;
+    min-width: 96px;
+  }
+
+  .event-art span {
+    font-size: clamp(1rem, 4.8vw, 1.45rem);
+  }
+
+  .event-content {
+    min-width: 0;
+    padding: 0.9rem 0.8rem;
+  }
+
+  .event-tag {
+    padding: 0.28rem 0.48rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.08rem;
+  }
+
+  .event-card h3 {
+    margin: 0.55rem 0 0.35rem;
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    overflow-wrap: anywhere;
+  }
+
+  .event-date,
+  .event-time {
+    font-size: 0.78rem;
+  }
+
+  .event-description {
+    margin-top: 0.55rem;
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .time-box {
+    padding: 1.1rem 0.5rem;
+    border-radius: 18px;
+  }
+
+  .time-label {
+    font-size: 0.64rem;
+    letter-spacing: 0.08rem;
+  }
+
+  .couple-layout {
+    gap: 0.8rem;
+  }
+
+  .portrait {
+    min-height: 240px;
+  }
+
+  .venue-card {
+    min-width: 0;
+    gap: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 22px;
+  }
+
+  .venue-gallery {
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    height: clamp(190px, 62vw, 280px);
+    aspect-ratio: auto;
+  }
+
+  .venue-gallery img {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+  }
+
+  .venue-gallery-nav {
+    width: 44px;
+    height: 44px;
+  }
+
+  .venue-details h3 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    line-height: 1.05;
+  }
+
+  .gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 400px);
+    gap: 0.75rem;
+  }
+
+  .gallery-item {
+    min-height: clamp(200px, 68vw, 280px);
+    border-radius: 18px;
+  }
+
+  .gallery-lightbox {
+    padding: 0.65rem;
+    padding-top: max(0.65rem, env(safe-area-inset-top));
+    padding-bottom: max(0.65rem, env(safe-area-inset-bottom));
+  }
+
+  .lightbox-stage {
+    width: 100%;
+    height: min(72vh, 640px);
+    height: min(72svh, 640px);
+  }
+
+  .lightbox-close {
+    top: max(0.75rem, env(safe-area-inset-top));
+    right: max(0.75rem, env(safe-area-inset-right));
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox-nav.prev {
+    left: max(0.4rem, env(safe-area-inset-left));
+  }
+
+  .lightbox-nav.next {
+    right: max(0.4rem, env(safe-area-inset-right));
+  }
+
+  .final-card {
+    padding: 2.4rem 1rem;
+    border-radius: 22px;
+  }
+
+  .final-date {
+    font-size: 0.95rem;
+    letter-spacing: 0.08rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .event-art {
+    flex-basis: 32%;
+    width: 32%;
+    min-width: 84px;
+  }
+
+  .event-content {
+    padding: 0.8rem 0.65rem;
+  }
+
+  .event-card h3 {
+    font-size: 1.45rem;
+  }
+
+  .event-date,
+  .event-time,
+  .event-description {
+    font-size: 0.72rem;
+  }
+
+  .venue-gallery-nav.prev {
+    left: 0.45rem;
+  }
+
+  .venue-gallery-nav.next {
+    right: 0.45rem;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .opening-screen {
+    place-items: start center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 3.5rem;
+  }
+
+  .envelope-card {
+    height: 420px;
   }
 }

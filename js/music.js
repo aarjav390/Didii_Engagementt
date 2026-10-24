@@ -16,14 +16,7 @@
       toggleButton.title = isPlaying ? 'Pause music' : 'Play music';
     };
 
-    const musicUrl = 'assets/music/wedding.mp3';
-
     const playMusic = async function () {
-      if (!audio.src) {
-        audio.src = musicUrl;
-        audio.load();
-      }
-
       try {
         await audio.play();
         updateToggle(true);
