@@ -33,6 +33,40 @@ function initializePhotoBackdrops() {
   });
 }
 
+function initializeScrollReveal() {
+  if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
+    return;
+  }
+
+  const revealTargets = [];
+  const itemSelector = '.events-grid > *, .couple-layout > *, .gallery-grid > *, .countdown-grid > *, .venue-gallery, .venue-details';
+
+  document.querySelectorAll('.invitation-page > .section').forEach((section) => {
+    Array.from(section.children).forEach((element, index) => {
+      element.classList.add('scroll-reveal');
+      element.style.setProperty('--reveal-delay', `${index * 100}ms`);
+      revealTargets.push(element);
+    });
+
+    section.querySelectorAll(itemSelector).forEach((element, index) => {
+      element.classList.add('scroll-reveal');
+      element.style.setProperty('--reveal-delay', `${Math.min(index, 4) * 90}ms`);
+      revealTargets.push(element);
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+  revealTargets.forEach((element) => observer.observe(element));
+}
+
 function openInvitation() {
   const invitationButton = document.getElementById('open-invitation-btn');
   const invitationCard = document.getElementById('envelope-card');
@@ -60,6 +94,7 @@ function openInvitation() {
 function initializeApp() {
   initializePetals();
   initializePhotoBackdrops();
+  initializeScrollReveal();
 
   const invitationButton = document.getElementById('open-invitation-btn');
   if (invitationButton) {

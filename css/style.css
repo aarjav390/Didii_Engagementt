@@ -24,9 +24,14 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
+  overflow-y: hidden;
   background: linear-gradient(180deg, #f9f3ee 0%, #fbf7f3 100%);
   color: var(--dark-maroon);
   font-family: 'Poppins', sans-serif;
+}
+
+body.invitation-open {
+  overflow-y: auto;
 }
 
 body::before {
@@ -167,10 +172,13 @@ h2 {
 .opening-screen {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   place-items: center;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(245, 233, 227, 0.96), rgba(247, 239, 235, 0.92));
+  padding: 1rem;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(255, 251, 248, 0.88), transparent 52%),
+    linear-gradient(135deg, rgba(245, 233, 227, 0.98), rgba(247, 239, 235, 0.94));
   overflow: hidden;
   transition: opacity 0.7s ease, transform 0.75s ease;
 }
@@ -227,7 +235,7 @@ h2 {
 .envelope-card {
   position: relative;
   width: min(84vw, 440px);
-  height: 515px;
+  height: 480px;
   perspective: 1200px;
   cursor: pointer;
   transition: transform 0.8s cubic-bezier(.22,1,.36,1), filter 0.6s ease;
@@ -246,9 +254,9 @@ h2 {
   inset: 0;
   display: block;
   background: linear-gradient(135deg, #e7d7d0, #f9f0eb 40%, #e7d5d3);
-  border: 1px solid rgba(99, 54, 61, 0.12);
-  border-radius: 22px 22px 26px 26px;
-  box-shadow: 0 24px 65px rgba(108, 58, 70, 0.12);
+  border: 1px solid rgba(99, 54, 61, 0.17);
+  border-radius: 28px;
+  box-shadow: 0 28px 75px rgba(108, 58, 70, 0.17), inset 0 0 0 8px rgba(255, 249, 245, 0.35);
   overflow: hidden;
 }
 
@@ -279,11 +287,29 @@ h2 {
   width: min(78%, 320px);
   min-height: 220px;
   padding: 1.4rem 1rem 1rem;
-  border-radius: 18px;
+  border-radius: 24px;
   background: rgba(255, 251, 249, 0.98);
   border: 1px solid rgba(119, 79, 70, 0.1);
-  box-shadow: 0 16px 38px rgba(116, 64, 63, 0.08);
+  box-shadow: 0 20px 48px rgba(116, 64, 63, 0.12);
   text-align: center;
+}
+
+.invite-card::before {
+  content: "✦";
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 3px solid #fffaf7;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), #bd9052);
+  box-shadow: 0 5px 14px rgba(96, 49, 63, 0.18);
+  color: #fffaf3;
+  font-size: 0.95rem;
+  transform: translateX(-50%);
 }
 
 .invite-kicker {
@@ -328,8 +354,9 @@ h2 {
 }
 
 .open-invitation-btn {
-  margin-top: 1.25rem;
-  border: none;
+  position: relative;
+  margin-top: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 999px;
   padding: 0.95rem 1.6rem;
   background: linear-gradient(135deg, var(--maroon), #845863);
@@ -339,11 +366,24 @@ h2 {
   letter-spacing: 0.08rem;
   text-transform: uppercase;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+  animation: invitationButtonGlow 2.8s ease-in-out infinite;
+}
+
+.open-invitation-btn:hover,
+.open-invitation-btn:focus-visible {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #754454, #966a75);
+  box-shadow: 0 16px 30px rgba(96, 49, 63, 0.3);
 }
 
 .open-invitation-btn:active {
   transform: scale(0.98);
+}
+
+.open-invitation-btn:disabled {
+  animation: none;
+  cursor: wait;
 }
 
 .invitation-page {
@@ -437,6 +477,12 @@ body.invitation-open .opening-screen.is-closed {
   color: var(--maroon);
   font-weight: 600;
   letter-spacing: 0.03em;
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+}
+
+.scratch-card.revealed .scratch-hidden-date {
+  animation: dateRise 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 #scratch-canvas {
@@ -448,7 +494,7 @@ body.invitation-open .opening-screen.is-closed {
   z-index: 2;
   cursor: grab;
   touch-action: none;
-  background: rgba(246, 236, 232, 0.45);
+  background: transparent;
   transition: opacity 0.35s ease;
 }
 

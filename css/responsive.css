@@ -76,13 +76,13 @@
   .opening-screen {
     min-height: 100vh;
     min-height: 100svh;
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .envelope-card {
     width: min(88vw, 400px);
-    height: min(500px, 68svh);
-    min-height: 420px;
+    height: min(430px, 52svh);
+    min-height: 300px;
   }
 
   .invite-card {
@@ -272,13 +272,65 @@
 
 @media (max-height: 520px) and (orientation: landscape) {
   .opening-screen {
-    place-items: start center;
+    place-items: center;
     min-height: 100vh;
     min-height: 100svh;
-    padding-top: 3.5rem;
+    padding: 0.5rem;
   }
 
   .envelope-card {
-    height: 420px;
+    height: min(280px, 62svh);
+    min-height: 0;
+  }
+
+  .invite-card {
+    min-height: 0;
+    padding: 0.7rem;
+  }
+
+  .invite-card h1 {
+    margin: 0.4rem 0;
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+  }
+
+  .invite-message {
+    margin-top: 0.3rem;
+    font-size: 0.78rem;
+  }
+
+  .open-invitation-btn {
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+@media (max-height: 520px) and (orientation: portrait) {
+  .opening-screen {
+    padding: 0.5rem;
+  }
+
+  .envelope-card {
+    height: min(280px, 48svh);
+    min-height: 240px;
+  }
+
+  .invite-card {
+    min-height: 0;
+    padding: 0.8rem 0.7rem;
+  }
+
+  .invite-card h1 {
+    margin: 0.4rem 0;
+    font-size: clamp(1.7rem, 7vw, 2.5rem);
+  }
+
+  .invite-message {
+    margin-top: 0.3rem;
+    font-size: 0.72rem;
+  }
+
+  .open-invitation-btn {
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.2rem;
   }
 }

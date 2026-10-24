@@ -45,6 +45,7 @@
     let previousX = 0;
     let previousY = 0;
     let scratchDistance = 0;
+    let distanceSinceCheck = 0;
 
     const resizeCanvas = function () {
       const bounds = scratchCard.getBoundingClientRect();
@@ -56,7 +57,8 @@
 
       context.setTransform(1, 0, 0, 1, 0, 0);
       context.scale(devicePixelRatio, devicePixelRatio);
-      context.fillStyle = 'rgba(232, 214, 209, 0.95)';
+      context.globalCompositeOperation = 'source-over';
+      context.fillStyle = '#e8d6d1';
       context.fillRect(0, 0, width, height);
       context.lineCap = 'round';
       context.lineJoin = 'round';
@@ -71,6 +73,7 @@
 
       drawing = true;
       scratchDistance = 0;
+      distanceSinceCheck = 0;
       const rect = canvas.getBoundingClientRect();
       previousX = event.clientX - rect.left;
       previousY = event.clientY - rect.top;
@@ -92,6 +95,7 @@
 
       const distance = Math.hypot(currentX - previousX, currentY - previousY);
       scratchDistance += distance;
+      distanceSinceCheck += distance;
 
       context.beginPath();
       context.moveTo(previousX, previousY);
@@ -100,6 +104,11 @@
 
       previousX = currentX;
       previousY = currentY;
+
+      if (distanceSinceCheck < 90) {
+        return;
+      }
+      distanceSinceCheck = 0;
 
       const revealProgress = getRevealProgress(context, canvas);
       const thresholdMet = revealProgress >= 0.42 || scratchDistance > 2100;
@@ -110,7 +119,16 @@
     };
 
     const handlePointerEnd = function () {
+      if (!drawing || scratchCard.classList.contains('revealed')) {
+        drawing = false;
+        return;
+      }
+
       drawing = false;
+
+      if (getRevealProgress(context, canvas) >= 0.42) {
+        revealScratchCard();
+      }
     };
 
     resizeCanvas();

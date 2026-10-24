@@ -24,6 +24,44 @@
   }
 }
 
+@keyframes invitationButtonGlow {
+  0%,
+  100% {
+    box-shadow: 0 12px 24px rgba(96, 49, 63, 0.22);
+  }
+  50% {
+    box-shadow: 0 16px 32px rgba(96, 49, 63, 0.34);
+  }
+}
+
+@keyframes dateRise {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s ease var(--reveal-delay, 0ms),
+    transform 0.65s cubic-bezier(0.2, 0.75, 0.25, 1) var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
