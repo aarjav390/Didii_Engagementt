@@ -11,7 +11,7 @@
     }
 
     currentIndex = (index + galleryItems.length) % galleryItems.length;
-    const image = galleryItems[currentIndex].querySelector('img');
+    const image = galleryItems[currentIndex].querySelector('img:not(.photo-fill)');
 
     if (!image) {
       return;

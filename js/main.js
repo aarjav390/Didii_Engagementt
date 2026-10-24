@@ -21,6 +21,18 @@ function initializePetals() {
   }
 }
 
+function initializePhotoBackdrops() {
+  const images = document.querySelectorAll('.portrait-inner img, .gallery-item img');
+
+  images.forEach((image) => {
+    const backdrop = image.cloneNode();
+    backdrop.classList.add('photo-fill');
+    backdrop.alt = '';
+    backdrop.setAttribute('aria-hidden', 'true');
+    image.parentElement.insertBefore(backdrop, image);
+  });
+}
+
 function openInvitation() {
   const invitationButton = document.getElementById('open-invitation-btn');
   const invitationCard = document.getElementById('envelope-card');
@@ -47,6 +59,7 @@ function openInvitation() {
 
 function initializeApp() {
   initializePetals();
+  initializePhotoBackdrops();
 
   const invitationButton = document.getElementById('open-invitation-btn');
   if (invitationButton) {
