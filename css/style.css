@@ -657,6 +657,12 @@ body.invitation-open .opening-screen.is-closed {
     linear-gradient(180deg, rgba(207, 141, 150, 0.38), rgba(255, 255, 255, 0.1));
 }
 
+.mameru .event-art {
+  background:
+    linear-gradient(135deg, rgba(111, 57, 47, 0.2), rgba(255,255,255,0.08)),
+    linear-gradient(180deg, rgba(207, 141, 150, 0.38), rgba(255, 255, 255, 0.1));
+}
+
 .haldi .event-art {
   background:
     linear-gradient(135deg, rgba(142, 118, 44, 0.18), rgba(255,255,255,0.06)),
