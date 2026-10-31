@@ -49,6 +49,28 @@
   }
 }
 
+@keyframes ceremonyGlow {
+  0%,
+  100% {
+    box-shadow: 0 18px 42px rgba(74, 31, 49, 0.2), 0 0 0 5px rgba(217, 184, 108, 0.12);
+  }
+  50% {
+    box-shadow: 0 21px 48px rgba(74, 31, 49, 0.24), 0 0 0 8px rgba(217, 184, 108, 0.2);
+  }
+}
+
+@keyframes ceremonySparkle {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(0.9) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12) rotate(15deg);
+  }
+}
+
 .scroll-reveal {
   opacity: 0;
   transform: translateY(24px);

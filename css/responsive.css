@@ -9,6 +9,22 @@
     width: calc((100% - 1.2rem) / 2);
   }
 
+  .events-grid .event-card.wedding:last-child {
+    display: grid;
+    grid-column: 1 / -1;
+    width: min(100%, 860px);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .wedding .event-art {
+    min-height: 0;
+  }
+
+  .wedding .event-content {
+    border-top: 0;
+    border-left: 1px solid rgba(255, 226, 166, 0.28);
+  }
+
   .couple-layout {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: end;
@@ -113,6 +129,16 @@
   .event-card {
     min-height: 0;
     border-radius: 22px;
+  }
+
+  .wedding .event-art {
+    min-height: 0;
+  }
+
+  .wedding .event-content {
+    padding: 1.2rem 1rem;
+    border-top: 1px solid rgba(255, 226, 166, 0.28);
+    border-left: 0;
   }
 
   .event-art {
